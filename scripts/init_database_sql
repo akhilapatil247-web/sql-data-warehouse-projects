@@ -1,0 +1,20 @@
+
+---drop and recreate datawarehouse database
+if exists (select 1 from sys.databases where name='DataWareHouse')
+begin
+	alter database DataWareHouse set single_user with rollback immediate;
+	drop database DataWareHouse;
+end;
+
+USE master;
+
+CREATE DATABASE DataWareHouse;
+
+use DataWareHouse;
+
+
+create schema bronze;
+
+create schema silver;
+
+create schema gold;
